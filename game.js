@@ -1,5 +1,5 @@
 playerScoreDivIdPrefix = "playerScoreDiv";
-boolean gamepaused=false ; 
+ 
 
 function getConfigFromUrl(){
 	var querySring = location.search;
