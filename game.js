@@ -1,4 +1,5 @@
 playerScoreDivIdPrefix = "playerScoreDiv";
+boolean gamepaused=false ; 
 
 function getConfigFromUrl(){
 	var querySring = location.search;
@@ -117,6 +118,19 @@ var showScores = function(){
 	for(var ioi = 0; ioi < noOfPlayers; ioi++){
 		document.getElementById(playerScoreDivIdPrefix + ioi).innerHTML = playerList[ioi].score;
 	} 
+}
+//function to pause and resume
+function keyDown(e) {
+  if (e.keyCode == 80) pauseGame();
+}
+function pauseGame() {
+  if (!gamePaused) {
+    game = clearTimeout(game);
+    gamePaused = true;
+  } else if (gamePaused) {
+    game = setTimeout(gameLoop, 1000 / 30);
+    gamePaused = false;
+  }
 }
 
 //render function
