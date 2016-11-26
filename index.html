@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,22 +11,34 @@
 			<div class="header">
 				<a class="plainLink" href="index.html">Curvy</a>
 			</div>
-			<div class="sideDiv leftDiv">
-				<div id="gameStatus">
-					<div class="sideHeading">SCORES</div>
-					<div id="scores">
+			<div class="mainDiv">
+				<div class="sideDiv leftDiv">
+					<div id="gameStatus">
+						<div class="sideHeading">HOW TO PLAY</div>
+						<div id="scores">
+							Use left and right keys to control your curve. Avoid hitting yourself, wall or other players.
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="mainDiv">
-				<div class="middleDiv">
-					<div id="gamediv">
-						<canvas class="playerCanvas" id="canvas"></canvas>
+				<div class="centerDiv">
+					<div class="playerCountDiv">
+						<label class="prompt">No of Players</label>
+						<input id="playerCount" value="2" onkeyup="playerCountChanged()">
 					</div>
+					<div id="playerConfigListDiv">
+						<col width="2px">
+						<div class="playerConfigDiv tableHeader" id="playerConfigDiv">
+							<div class="playerNameDiv tableHeaderCell">PLAYER</div>
+							<div class="playerColorDiv tableHeaderCell"></div>
+							<div class="playerKeyDiv playerKeyAntiDiv tableHeaderCell">KEY 1</div>
+							<div class="playerKeyDiv playerKeyClockiDiv tableHeaderCell">KEY 2</div>
+						</div>
+					</div>
+					<div class="buttonPanelDiv"><button onclick="redirectToGame()" class="startButton">Start Game</button></div>
 				</div>
 			</div>
 		</div>
 		<script src="common.js"></script>
-		<script src="game.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>
