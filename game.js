@@ -1,5 +1,5 @@
 playerScoreDivIdPrefix = "playerScoreDiv";
- 
+var gamePause=false ; 
 
 function getConfigFromUrl(){
 	var querySring = location.search;
@@ -26,7 +26,7 @@ var config = getConfigFromUrl();
 if (!config) config = getDefaultConfig();
 var noOfPlayers = config.length;
 
-var canvasWidth=600, canvasHeight = 600;
+var canvasWidth=700, canvasHeight = 600;
 
 var player = function(direc , xx, yy , col, keyAnti, keyClocki, prevScore) {
 	this.direction = direc;
@@ -68,6 +68,7 @@ var resetCanvas =  function(){
 			(playerList[iitu]?playerList[iitu].score:0)
 		);
 	}
+
 	timeElapsed=0;
 	noOfAlivePlayers = noOfPlayers;
 }
@@ -81,12 +82,23 @@ var pressedKeys = {};
 addEventListener("keydown", function (e) {
 	pressedKeys[e.keyCode] = true;
 	console.log(e.keyCode);
+	if (e.keyCode == 80) pauseGame();
 }, true);		
 
 //remove key
 addEventListener("keyup", function (e) 
 {	delete pressedKeys[e.keyCode];
 }, true);
+
+var pauseGame=function(){
+  if (!gamePaused) {
+    game = clearTimeout(game);
+    gamePaused = true;
+  } else if (gamePaused) {
+    game = setTimeout(gameLoop, 1000 / 30);
+    gamePaused = false;
+  }
+}
 
 var appendScoreDivs = function(){
 	for(var i = 0; i < noOfPlayers; i++){
