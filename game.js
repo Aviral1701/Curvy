@@ -120,18 +120,7 @@ var showScores = function(){
 	} 
 }
 //function to pause and resume
-function keyDown(e) {
-  if (e.keyCode == 80) pauseGame();
-}
-function pauseGame() {
-  if (!gamePaused) {
-    game = clearTimeout(game);
-    gamePaused = true;
-  } else if (gamePaused) {
-    game = setTimeout(gameLoop, 1000 / 30);
-    gamePaused = false;
-  }
-}
+
 
 //render function
 var render = function(millisecs){
