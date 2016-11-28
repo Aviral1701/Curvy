@@ -25,7 +25,8 @@ var keyCodes = [
 	87,
 	70,
 	38,
-	40
+	40,
+	80
 ]
 
 var keyNames = [
@@ -41,7 +42,8 @@ var keyNames = [
 	'w',
 	'f',
 	'down',
-	'up'
+	'up' ,
+	'p' ,
 ]
 
 var defaultKeyCombos = [
