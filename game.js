@@ -94,6 +94,7 @@ var pauseGame=function(){
   if (!gamePaused) {
     game = clearTimeout(game);
     gamePaused = true;
+	  prompt("heejdfd") ;
   } else if (gamePaused) {
     game = setTimeout(gameLoop, 1000 / 30);
     gamePaused = false;
