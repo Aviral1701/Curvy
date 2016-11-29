@@ -82,7 +82,6 @@ var pressedKeys = {};
 addEventListener("keydown", function (e) {
 	pressedKeys[e.keyCode] = true;
 	console.log(e.keyCode);
-	if (e.keyCode == 80) pauseGame();
 }, true);		
 
 //remove key
@@ -92,9 +91,9 @@ addEventListener("keyup", function (e)
 
 var pauseGame=function(){
   if (!gamePaused) {
-    game = clearTimeout(game);
+    //game = clearTimeout(game);
     gamePaused = true;
-	  prompt("heejdfd") ;
+  window.alert("sometext");
   } else if (gamePaused) {
     game = setTimeout(gameLoop, 1000 / 30);
     gamePaused = false;
@@ -132,7 +131,7 @@ var showScores = function(){
 		document.getElementById(playerScoreDivIdPrefix + ioi).innerHTML = playerList[ioi].score;
 	} 
 }
-//function to pause and resume
+
 
 
 //render function
