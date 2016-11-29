@@ -236,6 +236,8 @@ var main = function () {
 	var delta = now - then;
 	//update(delta);
 	render(delta);
+	gamepause() ;
+	gamepause() ;
 	then = now;
 	setTimeout(function(){requestAnimationFrame(main);},10);
 };
