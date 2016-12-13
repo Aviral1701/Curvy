@@ -101,7 +101,8 @@ var pauseGame=function(){
 	gamePaused=true ;  
   }
   else
-  {  gamePaused=false ; 
+  {  then=Date.now() ;
+     gamePaused=false ; 
      main() ;
   }
 
@@ -253,15 +254,13 @@ var render = function(millisecs){
 var main = function () {
 	var now = Date.now();
 	var delta = now - then;
-	if(gamePaused==false)
-	{
-		render(delta) ; 
-    }
-	
+	render(delta) ; 
 	//update(delta);
 	then=now ;
-	setTimeout(function(){requestAnimationFrame(main);},10);
-	
+	if(gamePaused==false)
+	{	
+	 setTimeout(function(){requestAnimationFrame(main);},10);
+	}
 	
    		
 };
