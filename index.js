@@ -61,7 +61,10 @@ function appendPlayerConfigDiv(index){
 
 function redirectToGame(){
 	config = playerConfigList.slice(0,playerCount);
+if(playerCount>1)
 	window.location = "game.html?config=" + encodeURIComponent(btoa(JSON.stringify(config)));
+else
+	window.location = "game1.html?config=" + encodeURIComponent(btoa(JSON.stringify(config)));
 }
 
 initializePlayerConfigList();
