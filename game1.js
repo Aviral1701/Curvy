@@ -50,7 +50,7 @@ var gamePaused=false ;
 
 
 var resetCanvas =  function(){
-	gamePaused=false ;
+	
 	ctx.fillStyle = bgColor;
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -72,6 +72,12 @@ var resetCanvas =  function(){
 
 	timeElapsed=0;
 	noOfAlivePlayers = noOfPlayers;
+	if(gamePaused==true)
+	{
+		pauseGame() ;
+	}
+		
+     		
 }
 
 
