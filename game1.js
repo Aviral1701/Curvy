@@ -96,13 +96,10 @@ addEventListener("keyup", function (e)
 
 var pauseGame=function(){
 if(gamePause==false)
-{gamePause=true ;  
- var now2=Date.now() ;
- }
+{gamePause=true ;  }
+
 else
-{gamePause=false ; 
-main1(now2) ;
-}
+{gamePause=false ;}
 
 } ;
 
