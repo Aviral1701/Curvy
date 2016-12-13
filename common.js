@@ -14,23 +14,30 @@ var playerNames = ["Orange", "Blue", "Green", "Pink"];
 
 var increasespeed=function(){
 	if(speed<0.6)
-	{speed=speed+0.1  ;
-	resetCanvas() ;}
+	{
+            speed=speed+0.1  ;
+	    resetCanvas() ;
+	}
 } ;
 var decreasespeed=function(){
-	if(speed>0.4) 
-	{speed=speed-0.1 ;
+      if(speed>0.4) 
+    {
+   speed=speed-0.1 ;
    resetCanvas() ;
-   }
+    }
 };
 var incangspeed=function(){
-	angularSpeed+=0.001 ;
-	resetCanvas() ;
+	
+  angularSpeed+=0.001 ;
+  resetCanvas() ;
+	
 } ;
 var decangspeed=function(){
-	if(angularSpeed>0.007)
-	{angularSpeed-=0.001 ;
-    resetCanvas() ; }
+    if(angularSpeed>0.007)
+  {
+    angularSpeed-=0.001 ;
+    resetCanvas() ; 
+  }
 } ;
 
 var keyCodes = [
