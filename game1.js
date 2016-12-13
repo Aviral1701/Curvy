@@ -46,11 +46,11 @@ canvas.height = canvasHeight;
 var playerList = [];
 var timeElapsed=0;
 var noOfAlivePlayers;
-var gamePause=false ;
+var gamePaused=false ;
 
 
 var resetCanvas =  function(){
-	gamePause=false ;
+	gamePaused=false ;
 	ctx.fillStyle = bgColor;
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -84,8 +84,9 @@ var pressedKeys = {};
 addEventListener("keydown", function (e) {
 	pressedKeys[e.keyCode] = true;
 	if(80 in pressedKeys)
-	{    pauseGame() ;        
-}
+	{    
+       pauseGame() ;        
+    }
 	console.log(e.keyCode);
 }, true);		
 
@@ -95,11 +96,14 @@ addEventListener("keyup", function (e)
 }, true);
 
 var pauseGame=function(){
-if(gamePause==false)
-{gamePause=true ;  }
-
-else
-{gamePause=false ;}
+  if(gamePaused==false)
+  {
+	gamePaused=true ;  
+  }
+  else
+  {  gamePaused=false ; 
+     main() ;
+  }
 
 } ;
 
@@ -138,9 +142,11 @@ var showScores = function(){
 	} 
 }
 var perimeter=function(x){
-var distance= speed*timeElapsed ;
-distance=Math.floor(distance/60+0.5) ;
-return distance ;
+ var distance= speed*timeElapsed*angularSpeed*100 ;
+
+ distance=Math.floor(distance/36+0.5) ;
+
+ return distance ;
 } ;
 
 
@@ -227,7 +233,7 @@ var render = function(millisecs){
 				  }
 				  else
 				 showScores();
-				setTimeout(function(){
+				 setTimeout(function(){
 					resetCanvas();
 				},1500);
 			}
@@ -247,11 +253,16 @@ var render = function(millisecs){
 var main = function () {
 	var now = Date.now();
 	var delta = now - then;
-	render(delta) ;
+	if(gamePaused==false)
+	{
+		render(delta) ; 
+    }
+	
 	//update(delta);
 	then=now ;
-	if(gamePause==false)
- 	{setTimeout(function(){requestAnimationFrame(main);},10); }
+	setTimeout(function(){requestAnimationFrame(main);},10);
+	
+	
    		
 };
 
