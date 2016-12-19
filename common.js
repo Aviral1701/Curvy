@@ -13,53 +13,30 @@ var playerColors = [ "#ff4500","#22a4ff", "#22ff33", "#ff2fd3"];
 var playerNames = ["Orange", "Blue", "Green", "Pink"];
 
 var increasespeed=function(){
-	if(speed<0.6)
-<<<<<<< HEAD
-	{speed=speed+0.1  ;
+        speed=speed+0.1  ;
 	resetCanvas() ;
-        }
+        
 } ;
 var decreasespeed=function(){
 	if(speed>0.4) 
-	{speed=speed-0.1 ;
-   resetCanvas() ;
-   }
+	{
+         speed=speed-0.1 ;
+         resetCanvas() ;
+        }
 };
 var incangspeed=function(){
+	
 	angularSpeed+=0.001 ;
 	resetCanvas() ;
 } ;
 var decangspeed=function(){
 	if(angularSpeed>0.007)
-	{angularSpeed-=0.001 ;
-    resetCanvas() ; }
-=======
 	{
-            speed=speed+0.1  ;
-	    resetCanvas() ;
+          angularSpeed-=0.001 ;
+          resetCanvas() ; 
 	}
 } ;
-var decreasespeed=function(){
-      if(speed>0.4) 
-    {
-   speed=speed-0.1 ;
-   resetCanvas() ;
-    }
-};
-var incangspeed=function(){
-	
-  angularSpeed+=0.001 ;
-  resetCanvas() ;
-	
-} ;
-var decangspeed=function(){
-    if(angularSpeed>0.007)
-  {
-    angularSpeed-=0.001 ;
-    resetCanvas() ; 
-  }
->>>>>>> origin/gh-pages
-} ;
+
 
 var keyCodes = [
 	37,
