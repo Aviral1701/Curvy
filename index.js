@@ -64,11 +64,7 @@ function redirectToGame(){
 if(playerCount>1)
 	window.location = "game.html?config=" + encodeURIComponent(btoa(JSON.stringify(config)));
 else
-<<<<<<< HEAD
 	window.location = "gameforSingle.html?config=" + encodeURIComponent(btoa(JSON.stringify(config)));
-=======
-	window.location = "game1.html?config=" + encodeURIComponent(btoa(JSON.stringify(config)));
->>>>>>> origin/gh-pages
 }
 
 initializePlayerConfigList();
