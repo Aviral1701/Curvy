@@ -1,15 +1,26 @@
 playerScoreDivIdPrefix = "playerScoreDiv";
+var highScore=0 ;
+
+
 
 function getDefaultConfig(){
-	var noOfPlayers_temp = prompt("Enter no of players (" + minPlayerCount + " to " + maxPlayerCount  + "):");
-	if(!(noOfPlayers_temp >= minPlayerCount && noOfPlayers_temp <= maxPlayerCount)) noOfPlayers_temp = 2;
-	return(getDefaultPlayerConfigList(noOfPlayers_temp));
+	return(getDefaultPlayerConfigList(1));
 }
-
 
 var config = getConfigFromUrl();
 if (!config) config = getDefaultConfig();
-var noOfPlayers = config.length;
+var noOfPlayers = 1 ;
+
+
+var perimeter=function(x){
+ var distance= speed*timeElapsed*angularSpeed*100 ;
+
+ distance=Math.floor(distance/36+0.5) ;
+
+ return distance ;
+} ;
+
+
 
 //render function
 var render = function(millisecs){
@@ -17,7 +28,7 @@ var render = function(millisecs){
 	if(millisecs==0) return;
 	timeElapsed+=millisecs;
 
-	if(timeElapsed < 1800){
+	if(timeElapsed < 100){
 		ctx.fillStyle = bgColor;
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 	}
@@ -30,7 +41,7 @@ var render = function(millisecs){
 		var newX = 0;
 		var oldY = playerList[i].y;
 		var newY = 0;
-
+      
 		var oldDirec = playerList[i].direction;
 
 		//console.log(pressedKeys);
@@ -68,8 +79,10 @@ var render = function(millisecs){
 		}
 
 
-		//Algo for colision detection. So ugly.
+		//Algo for colision detection.
 		if(playerList[i].alive){
+			playerList[0].score=perimeter(timeElapsed) ;
+			showScores() ;
 			for(var ii = 1; ii<=1.2; ii+= 0.1){
 				testX = oldX + defaultLineWidth*(ii) * Math.cos(oldDirec);
 				testY = oldY - defaultLineWidth*(ii) * Math.sin(oldDirec);		
@@ -85,20 +98,17 @@ var render = function(millisecs){
 		}
 
 		if (playerList[i].alive==false) {
-			noOfAlivePlayers-=1;
-			for(var ie = 0; ie < playerList.length; ie++)
-				if(playerList[ie].alive) playerList[ie].score+=1;
-			showScores();
-			var x=0 ;
-			if(noOfPlayers>1)
-				x=1 ;
-			if (noOfAlivePlayers==x){
-				showScores();
-				setTimeout(function(){
+                  if(highScore<perimeter(timeElapsed)){
+				  highScore=perimeter(timeElapsed) ;
+				  document.getElementById("currentScore").innerHTML = highScore ;
+				  }
+				  else
+				 showScores();
+				 setTimeout(function(){
 					resetCanvas();
 				},1500);
 			}
-		}
+		
 
 		ctx.beginPath();
 		ctx.moveTo(oldX,oldY);

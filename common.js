@@ -1,5 +1,5 @@
-var speed = 0.1;
-var angularSpeed = 0.0025;
+var speed = 0.30;
+var angularSpeed = 0.006;
 var defaultLineWidth = 7;
 var minLineWidth =10;
 
@@ -9,8 +9,30 @@ minPlayerCount = 1;
 
 var bgColor = "#000000";
 
-var playerColors = [ "#ff8834","#22a4ff", "#22ff33", "#ff2fd3"];
+var playerColors = [ "#ff4500","#22a4ff", "#22ff33", "#ff2fd3"];
 var playerNames = ["Orange", "Blue", "Green", "Pink"];
+
+var increasespeed=function(){
+	if(speed<0.6)
+	{speed=speed+0.1  ;
+	resetCanvas() ;
+        }
+} ;
+var decreasespeed=function(){
+	if(speed>0.4) 
+	{speed=speed-0.1 ;
+   resetCanvas() ;
+   }
+};
+var incangspeed=function(){
+	angularSpeed+=0.001 ;
+	resetCanvas() ;
+} ;
+var decangspeed=function(){
+	if(angularSpeed>0.007)
+	{angularSpeed-=0.001 ;
+    resetCanvas() ; }
+} ;
 
 var keyCodes = [
 	37,
@@ -25,7 +47,8 @@ var keyCodes = [
 	87,
 	70,
 	38,
-	40
+	40,
+	80
 ]
 
 var keyNames = [
@@ -41,7 +64,8 @@ var keyNames = [
 	'w',
 	'f',
 	'down',
-	'up'
+	'up' ,
+	'p' ,
 ]
 
 var defaultKeyCombos = [
