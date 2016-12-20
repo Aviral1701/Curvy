@@ -138,3 +138,26 @@ var showScores = function(){
 	} 
 }
 
+var increaseSpeed=function(){
+
+	speed=speed+0.1  ;
+	resetCanvas() ;
+        
+} ;
+var decreaseSpeed=function(){
+	if(speed>0.4) 
+	{speed=speed-0.1 ;
+         resetCanvas() ;
+   }
+};
+var incAngularSpeed=function(){
+	angularSpeed+=0.001 ;
+	resetCanvas() ;
+} ;
+var decAngularSpeed=function(){
+	if(angularSpeed>0.007)
+	{angularSpeed-=0.001 ;
+    resetCanvas() ; }
+} ;
+
+
