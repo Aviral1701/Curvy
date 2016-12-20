@@ -10,6 +10,24 @@ function getDefaultConfig(){
 var config = getConfigFromUrl();
 if (!config) config = getDefaultConfig();
 var noOfPlayers = config.length;
+var gameCount=1 ; 
+
+//function to check gameCount and increase speeds accordingly 
+var checkCount=function(){
+   gameCount++ ;
+ //increase speed after every 10 games
+  if(gameCount%10==0){
+    increaseSpeed() ; 
+  }
+ //increase angular speed after every 5 games
+  else if(gameCount%5==0){
+     incAngularSpeed() ;
+   }
+
+
+};
+
+
 
 //render function
 var render = function(millisecs){
@@ -89,11 +107,9 @@ var render = function(millisecs){
 			for(var ie = 0; ie < playerList.length; ie++)
 				if(playerList[ie].alive) playerList[ie].score+=1;
 			showScores();
-			var x=0 ;
-			if(noOfPlayers>1)
-				x=1 ;
-			if (noOfAlivePlayers==x){
+			if (noOfAlivePlayers==1){
 				showScores();
+                                checkCount() ;
 				setTimeout(function(){
 					resetCanvas();
 				},1500);
@@ -110,6 +126,7 @@ var render = function(millisecs){
 
 	}
 };
+
 
 var main = function () {
 	var now = Date.now();
