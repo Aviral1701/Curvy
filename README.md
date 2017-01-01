@@ -9,8 +9,7 @@ EnCurvy is an enchanced version of the game Curvy, hence the name.The game provi
 + Player can change speed(s) by buttons in right side divison.
 + For single player, score is being kept by a new method and is compared against a highscore.
 
-##To Do
-+ An auto-pause option that pauses the game when tab is not in focus.
+
 
 
 
