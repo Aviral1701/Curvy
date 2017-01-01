@@ -64,3 +64,15 @@ function getDefaultPlayerConfigList(noOfPlayers){
 	}
 	return defaultPlayerConfigList;
 }
+var isActive;
+
+window.onfocus = function () { 
+  isActive = true; 
+}; 
+
+window.onblur = function () { 
+ if(isActive==true)
+ { isActive=false ;
+ 	pauseGame()  ; }
+
+ }; 
